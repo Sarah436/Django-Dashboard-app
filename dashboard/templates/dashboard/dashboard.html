@@ -1,0 +1,89 @@
+<!-- dashboard/templates/dashboard/dashboard.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Dashboard</title>
+    <style>
+        h1 {
+            background-color: #4CAF50; /* Green background color */
+            color: white; /* White text color */
+            padding: 20px; /* Add some padding for better spacing */
+            text-align: center; /* Center-align the text */
+        }
+
+        /* Add some basic styling to the table for better visibility */
+        table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        /* Add a new style rule to handle intensity background color */
+        .intensity-cell {
+            /* Add more styles based on your preferences */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dashboard</h1>
+
+    <!-- Table for data -->
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Intensity</th>
+            <th>Relevance</th>
+            <th>Sector</th>
+            <th>Topic</th>
+            <th>Insight</th>
+            <th>URL</th>
+            <th>Region</th>
+            <th>Start Year</th>
+            <th>Impact</th>
+            <th>Added</th>
+            <th>Published</th>
+            <th>Country</th>
+            <th>Relevance</th>
+            <th>Pestle</th>
+            <th>Source</th>
+            <th>Likelihood</th>
+            <!-- Add more headers for additional fields as needed -->
+        </tr>
+        {% for item in data %}
+        <tr>
+            <td>{{ item.title }}</td>
+            <!-- Apply the intensity-cell class to the <td> for intensity -->
+            <td class="intensity-cell" style="background-color: {{ item.intensity_color }};">{{ item.intensity }}</td>
+            <td>{{ item.relevance }}</td>
+            <td>{{ item.sector }}</td>
+            <td>{{ item.topic }}</td>
+            <td>{{ item.insight }}</td>
+            <td><a href="{{ item.url }}" target="_blank">Link</a></td>
+            <td>{{ item.region }}</td>
+            <td>{{ item.start_year }}</td>
+            <td>{{ item.impact }}</td>
+            <td>{{ item.added }}</td>
+            <td>{{ item.published }}</td>
+            <td>{{ item.country }}</td>
+            <td>{{ item.relevance }}</td>
+            <td>{{ item.pestle }}</td>
+            <td>{{ item.source }}</td>
+            <td>{{ item.likelihood }}</td>
+            
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
